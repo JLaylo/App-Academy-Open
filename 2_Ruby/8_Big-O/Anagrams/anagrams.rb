@@ -2,6 +2,7 @@
 
 # Phase 1 - Store all permuations of first string and check second is one of them
 # O(n!) time comlpexity
+# O(n!) space comlpexity
 def first_anagram?(str1, str2)
     str1_arr = str1.split('')
     str1_anagrams = str1_arr.permutation(str1.length).to_a
@@ -14,6 +15,7 @@ end
 
 # Phase 2 - Iterate over 1st string and find index in 2nd string
 # O(n^2) time complexity
+# O(n) space complexity
 def second_anagram?(str1, str2)
     str2_arr = str2.split('')
 
@@ -30,7 +32,7 @@ end
 
 # Phase 3 - Sort both strings alphabetically and compare
 # O(nlogn) time complexity
-
+# O(n) space complexity
 def third_anagram?(str1, str2)
     str1_arr = str1.split('').sort
     str2_arr = str2.split('').sort
@@ -44,7 +46,7 @@ end
 
 # Phase 4 - Use hashes to map occurence of each letter
 # O(n) time complexity
-
+# O(1) space complexity
 def fourth_anagram?(str1, str2)
     hash1 = Hash[str1.split('').group_by{ |c| c }.map{ |k,v| [k, v.size] }]
     hash2 = Hash[str2.split('').group_by{ |c| c }.map{ |k,v| [k, v.size] }]
